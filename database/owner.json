@@ -1,0 +1,20 @@
+
+[
+    {
+        "fullname" : "Joshua",
+        "password" : "secret",
+        "phone" : "085338053005",
+        "address" : "BSD",
+        "petDetail" : [
+            {
+                "petName" : "Bailey",
+                "petAge" : 15,
+                "petSpecies" : "DOG",
+                "petBreed" : "Westie",
+                "petColour" : "White"
+            }
+        ]
+        
+    }
+]
+
