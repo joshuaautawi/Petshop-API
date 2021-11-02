@@ -27,6 +27,10 @@ const ownerSchema = new Schema ({
         type : String,
         required : [true,"ADDRESS IS REQUIRED"]
     },
+    isAdmin : {
+        type : Boolean,
+        default : false
+    },
     petsDetail : [
         {
             petName : String,

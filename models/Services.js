@@ -2,15 +2,32 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const servicesSchema = new Schema ({
-    grooming : {
-        type : Array
+
+    serviceName : {
+        type : String,
+        required : true
     },
-    catHotel : {
-        type : Object
+    title : {   
+        type : String,
+        required : true
     },
-    dogHotel : {
-        type : Object
+    duration : {
+        type : String,
+        required : true
+    },
+    price :{
+        type : Number,
+        required : true
+    },
+    detail : {
+        type : String,
+        required : true
+    },
+    other : {
+        type : String,
+        enum : ["MEDIUM", "LARGE" , "VIP"]
     }
+    
 })
 
 const Services = mongoose.model("Services",servicesSchema)

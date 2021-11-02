@@ -19,3 +19,8 @@ const invoiceSchema = new Schema ({
     }
 
 })
+
+
+const Owner = mongoose.model("Owners",ownerSchema)
+
+module.exports = Owner
