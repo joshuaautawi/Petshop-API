@@ -43,7 +43,33 @@ module.exports = {
         }
     },
     updateService : async (req,res)=>{
+        const { id } = req.query
+        const {
+            serviceName,
+            title,
+            duration,
+            price,
+            detail,
+            other
+        } = req.body
         try{
+            const service = await Services.findByIdAndUpdate(id,{
+                serviceName,
+                title,
+                duration,
+                price,
+                detail,
+                other
+            },
+            {
+                returnOriginal : false
+            })
+            return res.status(200).json(
+                {
+                    status : "success",
+                    message : "Services has been updated !"
+                }
+            )
             
         }catch(e){
             return res.status(400).json(
@@ -55,8 +81,15 @@ module.exports = {
         }
     },
     deleteService : async (req,res)=>{
+        const { id } = req.query
         try{
-            
+            await Services.findByIdAndDelete(id)
+            return res.status(200).json(
+                {
+                    status : "success",
+                    message : "delete success !"
+                }
+            )
         }catch(e){
             return res.status(400).json(
                 {
@@ -69,7 +102,7 @@ module.exports = {
     showAllService : async (req,res)=>{
         const { service } = req.query
         try{
-            const service = await Services.find({
+            const result = await Services.find({
                 where : {
                     serviceName = service
                 }

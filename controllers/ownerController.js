@@ -82,6 +82,33 @@ module.exports = {
                 })
         }  
     },
+    changePassword : async (req,res)=>{
+        const {
+            old_password,
+            new_password
+        } = req.body
+        const { id } =req.owner
+        try{
+            const owner = await Owners.findById(id)
+            if(checkPassword(old_password,owner.password)){
+                owner.password = encrypt(new_password)
+            }
+            await owner.save()
+            return res.status(200).json(
+                {
+                    status:"success",
+                    message : "password has been updated !"
+                }
+            )
+        }catch(e){
+            return res.status(400).json(
+                {
+                    status : "failed",
+                    message : "Error has occured",
+                    error : e
+                })
+        }
+    },
     addPetDetail : async (req,res)=>{
         const { id } = req.owner
         const { petsDetail } = req.body
@@ -185,7 +212,31 @@ module.exports = {
         
     },
     updateOwner : async (req,res)=>{
-
+        const { id } = req.owner 
+        const body = req.body
+        try{
+            await Owners.findByIdAndUpdate(id,
+                {
+                fullname,
+                phone,
+                address,
+                },
+                {
+                returnOriginal : false
+                })
+            return res.status(200).json(
+                {
+                    status : "success",
+                    message : "Owner data has been updated !"
+                }
+            )
+        }catch(e){
+            return res.status(400).json(
+                {
+                    status : "failed",
+                    message : "Error has occured ! ",
+                    error : e
+                })
+        }  
     }
-
 }
