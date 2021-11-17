@@ -16,11 +16,14 @@ const invoiceSchema = new Schema ({
     totalPayment : {
         type : Number,
         default : 0
+    },
+    owner_id : {
+        type: String,
     }
 
 })
 
 
-const Owner = mongoose.model("Owners",ownerSchema)
+const Invoice = mongoose.model("Invoice",invoiceSchema)
 
-module.exports = Owner
+module.exports = Invoice
