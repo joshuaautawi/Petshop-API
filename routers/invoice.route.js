@@ -1,6 +1,10 @@
-const router = require('express').Router()
-const {createInvoce }= require('../controllers/invoiceController')
+const router = require("express").Router();
+const {
+  createInvoice,
+  updateInvoiceStatus,
+} = require("../controllers/invoiceController");
 
-router.post('/',createInvoce)
+router.post("/", createInvoice);
+router.patch("/", updateInvoiceStatus);
 
-module.exports = router
+module.exports = router;

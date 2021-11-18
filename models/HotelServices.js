@@ -3,14 +3,13 @@ const Schema = mongoose.Schema
 
 const servicesSchema = new Schema ({
 
-    serviceName : {
+    pet : {
         type : String,
-        enum : ["Grooming","Hotel"],
+        enum : ["Dog","Cat","Other"],
         required : true
     },
     title : {   
         type : String,
-        enum : [""],
         required : true
     },
     duration : {
@@ -25,16 +24,8 @@ const servicesSchema = new Schema ({
         type : String,
         required : true
     },
-    other : {
-        type : String,
-        enum : ["MEDIUM", "LARGE" , "VIP"]
-    },
-    owner_id : {
-        type: String 
-    }
-    
 })
 
-const Services = mongoose.model("Services",servicesSchema)
+const HotelServices = mongoose.model("HotelServices",servicesSchema)
 
-module.exports = Services
+module.exports = HotelServices

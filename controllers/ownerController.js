@@ -195,6 +195,7 @@ module.exports = {
             petColour ? pet.petsDetail[index].petColour =petColour :  pet.petsDetail[index].petColour
 
             await pet.save()
+            redisClient.setex('owner',expired,JSON.stringify(pet))
             return res.status(200).json(
                 {
                     status : "success",

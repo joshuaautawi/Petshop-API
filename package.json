@@ -15,11 +15,13 @@
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
     "handlebars": "^4.7.7",
+    "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8",
     "nodemon": "^2.0.13",
     "path": "^0.12.7",
     "puppeteer": "^11.0.0",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "socket.io": "^4.3.2"
   }
 }

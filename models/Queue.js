@@ -2,17 +2,19 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const queueSchema = new Schema ({
-    availableGroomer : {
-        type : Number
+    groomer:{
+        name : String,
     },
-    in : {
-        type : Date
+    ins : {
+        type : String,
     },
-    out : {
-        type : Date
-    }
-
-
+    outs : {
+        type : String,
+    },
+    date : {
+        type : Date,
+        default : new Date(),
+    },
 })
 
 const Queue = mongoose.model("Queue",queueSchema)

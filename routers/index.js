@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const ownerRoute = require('./owner.route')
 const invoiceRoute = require('./invoice.route')
+const serviceRoute = require('./services.route')
 const { isLogin } = require('../middleware/auth')
 
 router.get('/',(req,res)=>{
@@ -9,6 +10,7 @@ router.get('/',(req,res)=>{
 
 router.use('/owner',ownerRoute)
 router.use('/invoices',isLogin,invoiceRoute)
+router.use("/services",serviceRoute)
 
 
 
